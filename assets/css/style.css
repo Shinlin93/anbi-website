@@ -147,15 +147,20 @@ nav.nav-links a:hover::after { width: 100%; }
 .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* ---------- ABOUT (components/about.html) ---------- */
-.about-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 80px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 80px; align-items: stretch; }
 .about-text h2 { font-size: 34px; margin-bottom: 22px; max-width: 520px; }
 .about-text > p.lead { color: var(--slate); font-size: 17px; margin-bottom: 44px; max-width: 520px; }
 .about-list { border-top: 1px solid var(--border); }
 .about-item { display: grid; grid-template-columns: 170px 1fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--border); }
 .about-item h4 { font-size: 16px; font-weight: 600; color: var(--navy-deep); }
 .about-item p { color: var(--slate); font-size: 15px; }
-.about-photo { position: sticky; top: 110px; }
-.about-photo img { width: 100%; border-radius: 6px; }
+.about-photo {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(16,41,79,0.12);
+  min-height: 380px;
+}
+.about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ---------- SERVICES (components/services.html) ---------- */
 .services-grid {
@@ -301,7 +306,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 @media (max-width: 980px) {
   section { padding: 72px 0; }
   .about-grid { grid-template-columns: 1fr; gap: 44px; }
-  .about-photo { position: static; order: -1; }
+  .about-photo { order: -1; min-height: 280px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
   .client-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid-2col { grid-template-columns: 1fr; gap: 36px; }
