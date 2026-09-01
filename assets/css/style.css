@@ -37,7 +37,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4 {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   color: var(--navy-deep);
   line-height: 1.18;
@@ -63,9 +63,10 @@ img { max-width: 100%; display: block; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 15px 30px;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
   font-size: 15px;
+  letter-spacing: -0.01em;
   border-radius: 8px;
   cursor: pointer;
   border: 1.5px solid transparent;
@@ -209,7 +210,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .client-item {
   display: flex; align-items: center; gap: 12px;
   padding: 28px 30px; background: var(--white);
-  font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 16px; color: var(--navy-deep);
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px; color: var(--navy-deep);
   transition: background .2s ease;
 }
 .client-item:hover { background: var(--soft-blue); }
@@ -244,7 +245,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .workflow-step:first-child { border-left: none; padding-left: 0; }
 .workflow-step:last-child { padding-right: 0; }
 .workflow-step .num {
-  font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px;
+  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px;
   color: var(--yellow); display: block; margin-bottom: 18px;
 }
 .workflow-step h4 { color: var(--white); font-size: 17px; margin-bottom: 10px; }
@@ -258,7 +259,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .legal-action { margin-top: 4px; }
 .legal-list { border-top: 1px solid var(--border); }
 .legal-row { display: grid; grid-template-columns: 30px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
-.legal-row .num { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--navy); font-size: 14px; }
+.legal-row .num { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--navy); font-size: 14px; }
 .legal-row h4 { font-size: 16px; margin-bottom: 5px; color: var(--navy-deep); }
 .legal-row p { color: var(--slate); font-size: 14.5px; }
 
@@ -270,7 +271,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .footer-top { display: grid; grid-template-columns: 1.4fr 0.85fr 0.85fr 1fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.16); }
 .footer-brand img { height: 52px; width: auto; margin-bottom: 22px; }
 .footer-brand p { color: rgba(255,255,255,0.66); font-size: 14.5px; max-width: 300px; }
-.footer-col h5 { font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.04em; }
+.footer-col h5 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.04em; }
 .footer-col a, .footer-col p { display: block; color: rgba(255,255,255,0.7); font-size: 14.5px; margin-bottom: 12px; }
 .footer-col a:hover { color: var(--yellow); }
 .footer-bottom { padding-top: 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
