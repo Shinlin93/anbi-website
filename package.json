@@ -1,0 +1,9 @@
+{
+  "name": "anbi-website",
+  "version": "1.0.0",
+  "description": "ANBI Consulting homepage — static site, no dependencies required.",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  }
+}
