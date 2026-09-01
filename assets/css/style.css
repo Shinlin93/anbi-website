@@ -83,11 +83,11 @@ img { max-width: 100%; display: block; }
 section { padding: 104px 0; }
 
 .head-row {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  gap: 40px; margin-bottom: 60px; flex-wrap: wrap;
+  display: flex; justify-content: flex-start; align-items: flex-end;
+  gap: 56px; margin-bottom: 60px; flex-wrap: wrap;
 }
-.head-row h2 { font-size: 36px; max-width: 620px; }
-.head-row p { color: var(--slate); font-size: 16px; max-width: 400px; padding-bottom: 2px; }
+.head-row h2 { font-size: 36px; max-width: 560px; }
+.head-row p { color: var(--slate); font-size: 16px; max-width: 340px; padding-bottom: 2px; }
 
 /* ---------- NAVBAR (components/navbar.html) ---------- */
 header.navbar {
@@ -239,13 +239,10 @@ nav.nav-links a:hover::after { width: 100%; }
 .workflow-section { background: var(--navy-deep); color: var(--white); }
 .workflow-section .head-row h2 { color: var(--white); }
 .workflow-section .head-row p { color: rgba(255,255,255,0.68); }
-.workflow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-.workflow-step { padding: 0 28px 0 0; position: relative; }
-.workflow-step:not(:last-child)::after {
-  content: "";
-  position: absolute; top: 20px; right: 0; width: 24px; height: 1px;
-  background: rgba(255,255,255,0.28);
-}
+.workflow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.workflow-step { padding: 0 30px; border-left: 1px solid rgba(255,255,255,0.2); }
+.workflow-step:first-child { border-left: none; padding-left: 0; }
+.workflow-step:last-child { padding-right: 0; }
 .workflow-step .num {
   font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 32px;
   color: var(--yellow); display: block; margin-bottom: 18px;
@@ -313,7 +310,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   .why-intro { position: static; }
   .why-checklist { grid-template-columns: 1fr; }
   .workflow-steps { grid-template-columns: 1fr 1fr; row-gap: 40px; column-gap: 28px; }
-  .workflow-step::after { display: none; }
+  .workflow-step { border-left: none !important; padding-left: 0 !important; padding-right: 0 !important; }
   .legal-grid { grid-template-columns: 1fr; gap: 40px; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
   .footer-brand { grid-column: 1 / -1; }
