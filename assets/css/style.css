@@ -72,8 +72,8 @@ img { max-width: 100%; display: block; }
   transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
   white-space: nowrap;
 }
-.btn-cta { background: var(--yellow); color: var(--navy-deep); }
-.btn-cta:hover { background: var(--yellow-dark); }
+.btn-accent { background: var(--yellow); color: var(--navy-deep); }
+.btn-accent:hover { background: var(--yellow-dark); }
 .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.6); }
 .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 .btn-outline-navy { background: transparent; color: var(--navy-deep); border-color: var(--navy-deep); }
@@ -116,8 +116,8 @@ nav.nav-links a::after {
 }
 nav.nav-links a:hover { color: var(--navy); }
 nav.nav-links a:hover::after { width: 100%; }
-.navbar-cta { display: flex; align-items: center; gap: 26px; }
-.navbar-cta .btn { padding: 12px 22px; font-size: 14px; border-radius: 8px; }
+.navbar-actions { display: flex; align-items: center; gap: 26px; }
+.navbar-actions .btn { padding: 12px 22px; font-size: 14px; border-radius: 8px; }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy-deep); margin: 5px 0; transition: .25s; }
 
@@ -143,7 +143,7 @@ nav.nav-links a:hover::after { width: 100%; }
 }
 .hero-content h1 { color: var(--white); font-size: 52px; max-width: 720px; margin-bottom: 22px; }
 .hero-sub { color: rgba(255,255,255,0.82); font-size: 17px; max-width: 540px; margin-bottom: 40px; }
-.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
 
 /* ---------- ABOUT (components/about.html) ---------- */
 .about-grid { display: grid; grid-template-columns: 1fr 0.92fr; gap: 80px; align-items: start; }
@@ -180,13 +180,13 @@ nav.nav-links a:hover::after { width: 100%; }
 }
 .service-icon svg { width: 22px; height: 22px; }
 .service-card h4 { font-size: 17px; font-weight: 600; color: var(--navy-deep); }
-.services-cta { margin-top: 48px; text-align: center; }
+.services-actions { margin-top: 48px; text-align: center; }
 
 /* ---------- CTA BLOCKS (components/cta-mid.html, cta-final.html) ---------- */
-.cta-block { background: var(--navy-deep); color: var(--white); padding: 100px 0; }
-.cta-block-inner { text-align: center; }
-.cta-block h2 { color: var(--white); font-size: 36px; margin-bottom: 16px; }
-.cta-block p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 480px; margin: 0 auto 36px; }
+.action-block { background: var(--navy-deep); color: var(--white); padding: 100px 0; }
+.action-block-inner { text-align: center; }
+.action-block h2 { color: var(--white); font-size: 36px; margin-bottom: 16px; }
+.action-block p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 480px; margin: 0 auto 36px; }
 
 /* ---------- CLIENTS (components/clients.html) ---------- */
 .clients-section { background: var(--warm-white); }
@@ -252,7 +252,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .legal-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; }
 .legal-heading h2 { font-size: 34px; margin-bottom: 18px; max-width: 420px; }
 .legal-heading p { color: var(--slate); font-size: 16px; max-width: 400px; margin-bottom: 32px; }
-.legal-cta { margin-top: 4px; }
+.legal-action { margin-top: 4px; }
 .legal-list { border-top: 1px solid var(--border); }
 .legal-row { display: grid; grid-template-columns: 30px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--border); }
 .legal-row .num { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--navy); font-size: 14px; }
@@ -324,7 +324,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   }
   nav.nav-links.open { transform: translateX(0); }
   nav.nav-links a { font-size: 20px; }
-  .navbar-cta .btn-outline-navy { display: none; }
+  .navbar-actions .btn-outline-navy { display: none; }
   .nav-toggle { display: block; }
   .navbar-inner { padding: 0 22px; height: 68px; }
   .hero { padding-top: 68px; min-height: 600px; }
@@ -337,8 +337,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   .client-grid { grid-template-columns: 1fr; }
   .workflow-steps { grid-template-columns: 1fr; row-gap: 36px; }
   .legal-grid { grid-template-columns: 1fr; }
-  .cta-block { padding: 72px 0; }
-  .cta-block h2 { font-size: 27px; }
+  .action-block { padding: 72px 0; }
+  .action-block h2 { font-size: 27px; }
   .footer-top { grid-template-columns: 1fr; }
   .footer { padding: 72px 0 28px; }
   .whatsapp-fab { width: 52px; height: 52px; right: 16px; bottom: 16px; }
