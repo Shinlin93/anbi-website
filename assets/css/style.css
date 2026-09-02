@@ -343,7 +343,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   }
   nav.nav-links.open { transform: translateX(0); }
   nav.nav-links a { font-size: 20px; }
-  .navbar-actions .btn-outline-navy { display: none; }
+  .navbar-actions .btn-accent { display: none; }
   .nav-toggle { display: block; }
   .navbar-inner { padding: 0 22px; height: 68px; }
   .navbar-logo img { height: 36px; }
