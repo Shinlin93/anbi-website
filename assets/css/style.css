@@ -277,16 +277,31 @@ nav.nav-links a:hover::after { width: 100%; }
 .footer-bottom { padding-top: 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 13.5px; }
 
-/* ---------- WHATSAPP FLOATING BUTTON (not currently used — see README) ---------- */
+/* ---------- WHATSAPP FLOATING BUTTON (components/whatsapp-button.html) ---------- */
 .whatsapp-fab {
   position: fixed; right: 24px; bottom: 24px; z-index: 90;
-  width: 56px; height: 56px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 20px rgba(16,41,79,0.28);
-  transition: transform .2s ease;
+  display: flex; align-items: center; gap: 10px;
+  background: #1EBE57;
+  border-radius: 999px;
+  padding: 4px;
+  box-shadow: 0 10px 24px rgba(16,41,79,0.3);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.whatsapp-fab:hover { transform: translateY(-2px); }
-.whatsapp-fab svg { width: 56px; height: 56px; }
+.whatsapp-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(16,41,79,0.34); }
+.whatsapp-fab-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  color: #fff;
+  padding-left: 16px;
+  white-space: nowrap;
+}
+.whatsapp-fab-icon {
+  flex: 0 0 auto;
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+}
+.whatsapp-fab-icon svg { width: 48px; height: 48px; }
 
 /* ---------- Scroll reveal (used across components) ---------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -346,6 +361,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   .action-block h2 { font-size: 27px; }
   .footer-top { grid-template-columns: 1fr; }
   .footer { padding: 72px 0 28px; }
-  .whatsapp-fab { width: 52px; height: 52px; right: 16px; bottom: 16px; }
-  .whatsapp-fab svg { width: 52px; height: 52px; }
+  .whatsapp-fab { right: 16px; bottom: 16px; padding: 3px; }
+  .whatsapp-fab-label { display: none; }
+  .whatsapp-fab-icon { width: 46px; height: 46px; }
+  .whatsapp-fab-icon svg { width: 46px; height: 46px; }
 }
