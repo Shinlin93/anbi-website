@@ -135,7 +135,7 @@ nav.nav-links a:hover::after { width: 100%; }
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(100deg, rgba(16,41,79,0.94) 0%, rgba(16,41,79,0.82) 42%, rgba(16,41,79,0.55) 100%);
+  background: linear-gradient(120deg, rgba(16,41,79,0.95) 0%, rgba(23,58,115,0.85) 45%, rgba(36,73,168,0.55) 100%);
 }
 .hero-content { position: relative; z-index: 2; width: 100%; padding: 96px 32px; max-width: var(--maxw); margin: 0 auto; text-align: left; }
 .hero-eyebrow {
@@ -182,7 +182,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .service-icon {
   display: inline-flex; align-items: center; justify-content: center;
   width: 48px; height: 48px; border-radius: 10px;
-  background: var(--navy-deep); color: var(--white);
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); color: var(--white);
   margin-bottom: 22px;
 }
 .service-icon svg { width: 22px; height: 22px; }
@@ -190,7 +190,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .services-actions { margin-top: 48px; text-align: center; }
 
 /* ---------- CTA BLOCKS (components/cta-mid.html, cta-final.html) ---------- */
-.action-block { background: var(--navy-deep); color: var(--white); padding: 100px 0; }
+.action-block { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); color: var(--white); padding: 100px 0; }
 .action-block-inner { text-align: center; }
 .action-block h2 { color: var(--white); font-size: 36px; margin-bottom: 16px; }
 .action-block p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 480px; margin: 0 auto 36px; }
@@ -237,7 +237,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .check-item p { color: var(--slate); font-size: 14px; }
 
 /* ---------- WORKFLOW (components/workflow.html) ---------- */
-.workflow-section { background: var(--navy-deep); color: var(--white); }
+.workflow-section { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); color: var(--white); }
 .workflow-section .head-row h2 { color: var(--white); }
 .workflow-section .head-row p { color: rgba(255,255,255,0.68); }
 .workflow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
@@ -266,7 +266,7 @@ nav.nav-links a:hover::after { width: 100%; }
 /* ---------- FOOTER (components/footer.html) ---------- */
 .footer { position: relative; color: var(--white); padding: 96px 0 36px; overflow: hidden; }
 .footer-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-.footer-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,41,79,0.45) 0%, rgba(16,41,79,0.62) 45%, rgba(16,41,79,0.88) 100%); }
+.footer-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(16,41,79,0.35) 0%, rgba(23,58,115,0.55) 40%, rgba(16,41,79,0.9) 100%); }
 .footer-inner { position: relative; z-index: 2; }
 .footer-top { display: grid; grid-template-columns: 1.4fr 0.85fr 0.85fr 1fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.16); }
 .footer-brand img { height: 52px; width: auto; margin-bottom: 22px; }
