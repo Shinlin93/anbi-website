@@ -199,58 +199,215 @@ nav.nav-links a:hover::after { width: 100%; }
 .action-block p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 480px; margin: 0 auto 36px; }
 
 /* ---------- CLIENTS (components/clients.html) ---------- */
-.clients-section { background: var(--warm-white); }
-.clients-head { max-width: 640px; margin-bottom: 52px; }
-.clients-head h2 { font-size: 32px; }
-.client-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-.client-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 28px 30px; background: var(--white);
-  font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 16px; color: var(--navy-deep);
-  transition: background .2s ease;
-}
-.client-item:hover { background: var(--soft-blue); }
-.client-item::before {
-  content: ""; width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto;
-  background: var(--gold);
-}
 
 .client-logos-label {
-  text-align: center; color: var(--slate); font-size: 13px; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.08em; margin-top: 56px; margin-bottom: 28px;
+
+  text-align: center;
+  color: var(--slate);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 56px;
+  margin-bottom: 28px;
+
 }
+
 .client-logos-marquee {
+
+  width: 100%;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+
 }
+
 .client-logos-track {
-  display: flex; align-items: center; gap: 72px;
+
+  display: flex;
+  align-items: center;
   width: max-content;
-  animation: client-logo-scroll 32s linear infinite;
+
+  will-change: transform;
+
+  animation: client-logo-scroll 30s linear infinite;
+
 }
-.client-logos-marquee:hover .client-logos-track { animation-play-state: paused; }
-.client-logo-item { flex: 0 0 auto; height: 34px; display: flex; align-items: center; }
+
+
+/* Setiap kumpulan logo memiliki lebar yang sama */
+.client-logos-set {
+
+  display: flex;
+  align-items: center;
+  gap: 72px;
+
+  padding-right: 72px;
+
+  flex-shrink: 0;
+
+}
+
+
+.client-logos-marquee:hover .client-logos-track {
+  animation-play-state: paused;
+}
+
+
+.client-logo-item {
+
+  flex: 0 0 auto;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
 .client-logo-item img {
-  height: 100%; width: auto; display: block;
-  filter: grayscale(100%); opacity: 0.5;
-  transition: filter .25s ease, opacity .25s ease;
+
+  height: 100%;
+  width: auto;
+  display: block;
+
+  filter: grayscale(100%);
+  opacity: 0.5;
+
+  transition:
+    filter 0.25s ease,
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
 }
-.client-logo-item:hover img { filter: grayscale(0%); opacity: 1; }
+
+
+.client-logo-item:hover img {
+
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.04);
+
+}
+
+
+/* ---------- SEAMLESS INFINITE LOOP ---------- */
+
 @keyframes client-logo-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-33.333333%, 0, 0);
+  }
+
 }
+
+
+/* ---------- REDUCED MOTION ---------- */
+
 @media (prefers-reduced-motion: reduce) {
-  .client-logos-track { animation: none; flex-wrap: wrap; justify-content: center; width: 100%; }
-  .client-logos-marquee { mask-image: none; -webkit-mask-image: none; }
+
+  .client-logos-track {
+
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+  }
+
+  .client-logos-marquee {
+
+    mask-image: none;
+    -webkit-mask-image: none;
+
+  }
+
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 768px) {
+
+  .client-logos-label {
+
+    margin-top: 42px;
+    margin-bottom: 24px;
+
+  }
+
+  .client-logos-set {
+
+    gap: 48px;
+    padding-right: 48px;
+
+  }
+
+  .client-logo-item {
+
+    height: 30px;
+
+  }
+
+  .client-logos-track {
+
+    animation-duration: 24s;
+
+  }
+
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 480px) {
+
+  .client-logos-label {
+
+    font-size: 11px;
+    margin-top: 36px;
+    margin-bottom: 20px;
+
+  }
+
+  .client-logos-set {
+
+    gap: 36px;
+    padding-right: 36px;
+
+  }
+
+  .client-logo-item {
+
+    height: 26px;
+
+  }
+
+  .client-logos-track {
+
+    animation-duration: 20s;
+
+  }
+
 }
 
 /* ---------- WHY ANBI (components/why-anbi.html) ---------- */
