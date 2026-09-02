@@ -5,24 +5,28 @@
    /components.
 
    Design direction: professional / corporate / international / premium.
-   Color system: navy + blue + a single yellow accent used sparingly for
-   CTAs, active states and highlights. No gradients, no glassmorphism,
+   Color system: blue (Primary) + sage green (Secondary) + warm gold
+   (Accent, used sparingly for CTAs/highlights) + charcoal text on a warm
+   off-white background. No gradients used to excess, no glassmorphism,
    no decorative blobs — whitespace, type and alignment carry the design.
    ========================================================================== */
 
 /* ---------- Design tokens ---------- */
 :root {
-  --navy-deep: #173A73;   /* Primary Navy */
-  --navy: #2449A8;        /* Primary Blue */
+  --navy-deep: #173A73;   /* Primary — Blue (deep) */
+  --navy: #2449A8;        /* Primary — Blue (bright, for gradient endpoints) */
   --navy-darker: #10294F; /* used for deepest overlays / hover states */
-  --yellow: #FDCB18;      /* Accent Yellow — CTAs, numbers, highlights */
-  --yellow-dark: #E3B300; /* hover state for yellow buttons */
-  --warm-white: #F7F8FA;  /* Light Background */
+  --sage: #6B8F7A;        /* Secondary — Sage Green */
+  --soft-sage: #E7EEE9;   /* light sage tint for icon backgrounds etc. */
+  --gold: #C9A463;        /* Accent — Warm Gold, replaces old bright yellow */
+  --gold-dark: #B38C4E;   /* hover state for gold buttons */
+  --charcoal: #1F2933;    /* Text — Dark */
+  --warm-white: #F5F3EE;  /* Background — Off-White */
   --white: #FFFFFF;
   --soft-blue: #E7ECF7;
-  --body: #344054;        /* Body Text */
-  --slate: #667085;       /* Muted Text */
-  --border: #E5E7EB;
+  --body: #3A4450;        /* Body Text (slightly warmed toward charcoal) */
+  --slate: #6B6156;       /* Muted Text (warm gray, matches off-white bg) */
+  --border: #E7E2D9;      /* warmed border to match off-white background */
   --maxw: 1160px;
 }
 
@@ -32,14 +36,14 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', sans-serif;
   color: var(--body);
-  background: var(--white);
+  background: var(--warm-white);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
-  color: var(--navy-deep);
+  color: var(--charcoal);
   line-height: 1.18;
   letter-spacing: -0.01em;
 }
@@ -54,10 +58,10 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--sage);
   margin-bottom: 12px;
 }
-.eyebrow-on-navy { color: var(--yellow); }
+.eyebrow-on-navy { color: var(--gold); }
 
 /* ---------- Buttons (shared) ---------- */
 .btn {
@@ -73,8 +77,8 @@ img { max-width: 100%; display: block; }
   transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
   white-space: nowrap;
 }
-.btn-accent { background: var(--yellow); color: var(--navy-deep); }
-.btn-accent:hover { background: var(--yellow-dark); }
+.btn-accent { background: var(--gold); color: var(--navy-deep); }
+.btn-accent:hover { background: var(--gold-dark); }
 .btn-ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.6); }
 .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 .btn-outline-navy { background: transparent; color: var(--navy-deep); border-color: var(--navy-deep); }
@@ -135,12 +139,12 @@ nav.nav-links a:hover::after { width: 100%; }
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(120deg, rgba(16,41,79,0.95) 0%, rgba(23,58,115,0.85) 45%, rgba(36,73,168,0.55) 100%);
+  background: linear-gradient(120deg, rgba(16,41,79,0.95) 0%, rgba(23,58,115,0.82) 45%, rgba(107,143,122,0.5) 100%);
 }
 .hero-content { position: relative; z-index: 2; width: 100%; padding: 96px 32px; max-width: var(--maxw); margin: 0 auto; text-align: left; }
 .hero-eyebrow {
   font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--yellow);
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
   margin-bottom: 18px;
 }
 .hero-content h1 { color: var(--white); font-size: 52px; max-width: 720px; margin-bottom: 22px; }
@@ -216,7 +220,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .client-item:hover { background: var(--soft-blue); }
 .client-item::before {
   content: ""; width: 7px; height: 7px; border-radius: 50%; flex: 0 0 auto;
-  background: var(--yellow);
+  background: var(--gold);
 }
 
 /* ---------- WHY ANBI (components/why-anbi.html) ---------- */
@@ -229,7 +233,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .check-item { display: flex; gap: 14px; align-items: flex-start; }
 .check-icon {
   flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
-  background: var(--soft-blue); color: var(--navy);
+  background: var(--soft-sage); color: var(--sage);
   display: flex; align-items: center; justify-content: center;
   font-size: 13px; font-weight: 700; margin-top: 2px;
 }
@@ -246,7 +250,7 @@ nav.nav-links a:hover::after { width: 100%; }
 .workflow-step:last-child { padding-right: 0; }
 .workflow-step .num {
   font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px;
-  color: var(--yellow); display: block; margin-bottom: 18px;
+  color: var(--gold); display: block; margin-bottom: 18px;
 }
 .workflow-step h4 { color: var(--white); font-size: 17px; margin-bottom: 10px; }
 .workflow-step p { color: rgba(255,255,255,0.68); font-size: 14.5px; }
@@ -266,14 +270,14 @@ nav.nav-links a:hover::after { width: 100%; }
 /* ---------- FOOTER (components/footer.html) ---------- */
 .footer { position: relative; color: var(--white); padding: 96px 0 36px; overflow: hidden; }
 .footer-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-.footer-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(16,41,79,0.35) 0%, rgba(23,58,115,0.55) 40%, rgba(16,41,79,0.9) 100%); }
+.footer-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(16,41,79,0.35) 0%, rgba(107,143,122,0.4) 45%, rgba(16,41,79,0.9) 100%); }
 .footer-inner { position: relative; z-index: 2; }
 .footer-top { display: grid; grid-template-columns: 1.4fr 0.85fr 0.85fr 1fr; gap: 48px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.16); }
 .footer-brand img { height: 52px; width: auto; margin-bottom: 22px; }
 .footer-brand p { color: rgba(255,255,255,0.66); font-size: 14.5px; max-width: 300px; }
 .footer-col h5 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.04em; }
 .footer-col a, .footer-col p { display: block; color: rgba(255,255,255,0.7); font-size: 14.5px; margin-bottom: 12px; }
-.footer-col a:hover { color: var(--yellow); }
+.footer-col a:hover { color: var(--gold); }
 .footer-bottom { padding-top: 26px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-bottom p { color: rgba(255,255,255,0.5); font-size: 13.5px; }
 
