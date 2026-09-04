@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} — Blog ANBI Consulting</title>
+<meta name="description" content="{{EXCERPT}}">
+<link rel="canonical" href="https://anbi-consulting.co.id{{URL_PATH}}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{EXCERPT}}">
+<meta property="og:image" content="https://anbi-consulting.co.id{{IMAGE}}">
+<meta property="og:url" content="https://anbi-consulting.co.id{{URL_PATH}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<!-- COMPONENT: navbar-blog.html -->
+
+<main id="top">
+  <article class="blog-post">
+
+    <div class="wrap blog-post-head reveal">
+      <a href="/blog/" class="blog-back">← Kembali ke Blog</a>
+      <p class="blog-post-meta">{{DATE_DISPLAY}} &middot; {{AUTHOR}}</p>
+      <h1>{{TITLE}}</h1>
+    </div>
+
+    <div class="blog-post-cover reveal">
+      <img src="{{IMAGE}}" alt="{{TITLE}}">
+    </div>
+
+    <div class="wrap blog-post-body reveal">
+      {{CONTENT}}
+    </div>
+
+    <div class="wrap reveal">
+      <div class="blog-post-cta">
+        <h2>Butuh Bantuan Mengurus Legalitas Usaha?</h2>
+        <p>Konsultasikan kebutuhan bisnis Anda bersama tim ANBI Consulting.</p>
+        <a href="/#contact" class="btn btn-accent">Konsultasikan Sekarang</a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<!-- COMPONENT: footer-blog.html -->
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

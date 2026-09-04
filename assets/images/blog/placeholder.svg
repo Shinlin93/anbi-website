@@ -1,0 +1,13 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#173A73"/>
+      <stop offset="100%" stop-color="#2449A8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="660" cy="90" r="140" fill="#ffffff" opacity="0.06"/>
+  <circle cx="120" cy="430" r="180" fill="#ffffff" opacity="0.05"/>
+  <text x="50%" y="52%" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#C9A463" font-weight="700" letter-spacing="2">ANBI CONSULTING</text>
+  <text x="50%" y="60%" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="rgba(255,255,255,0.75)">Blog &amp; Artikel</text>
+</svg>
