@@ -536,8 +536,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   display: flex;
   align-items: center;
   padding-top: 78px;
-  background: linear-gradient(135deg, var(--navy-darker) 0%, var(--navy-deep) 62%, var(--sage) 140%);
-}
+  background: var(--navy-darker);
+  }
 .services-hero-inner { width: 100%; }
 .services-hero-content { max-width: 680px; padding: 76px 0 88px; }
 .services-hero h1 { color: var(--white); font-size: 52px; margin-bottom: 20px; }
@@ -547,9 +547,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
 .service-full {
   display: flex; flex-direction: column; gap: 22px;
   background: var(--white); border: 1px solid var(--border); border-radius: 14px;
-  padding: 32px 30px; transition: transform .2s ease, box-shadow .2s ease;
-}
-.service-full:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(16,41,79,0.08); }
+  padding: 32px 30px;
+  }
 .service-full-icon {
   position: relative;
   display: inline-flex; align-items: center; justify-content: center;
@@ -558,19 +557,15 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-
   color: var(--icon-color, var(--navy));
   border: 1px solid color-mix(in srgb, var(--icon-color, var(--navy)) 14%, transparent);
   box-shadow: 0 8px 18px rgba(16,41,79,0.08);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-}
-.service-full-icon::after {
+  }
+  .service-full-icon::after {
   content: "";
   position: absolute; inset: 6px;
   border: 1px solid currentColor; border-radius: 12px;
   opacity: .16;
 }
 .service-full-icon svg { position: relative; z-index: 1; width: 27px; height: 27px; stroke-width: 1.8; }
-.service-full:hover .service-full-icon {
-  transform: translateY(-3px) rotate(-3deg);
-  box-shadow: 0 12px 24px rgba(16,41,79,0.13);
-}
+
 .service-full:nth-child(1) .service-full-icon { --icon-bg: #e8eefb; --icon-color: #2449a8; }
 .service-full:nth-child(2) .service-full-icon { --icon-bg: #e8f2ee; --icon-color: #477b62; }
 .service-full:nth-child(3) .service-full-icon { --icon-bg: #fbf0dc; --icon-color: #a77a2e; }

@@ -87,7 +87,13 @@ function buildServices() {
   if (!fs.existsSync(SERVICES_TEMPLATE_PATH)) return;
   const template = fs.readFileSync(SERVICES_TEMPLATE_PATH, 'utf8');
   const result = injectComponents(template)
-    .replace(/(src|href)="assets\//g, '$1="../assets/');
+    .replace(/(src|href)="assets\//g, '$1="../assets/')
+    .replace('href="#top" class="navbar-logo"', 'href="../" class="navbar-logo"')
+    .replace(/href="#about"/g, 'href="../#about"')
+    .replace(/href="#clients"/g, 'href="../#clients"')
+    .replace(/href="#why-anbi"/g, 'href="../#why-anbi"')
+    .replace(/href="#contact"/g, 'href="../#contact"')
+    .replace(/—/g, ',');
   fs.mkdirSync(SERVICES_OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(path.join(SERVICES_OUTPUT_DIR, 'index.html'), result);
   console.log(`✔ Built services/index.html (${(result.length / 1024).toFixed(0)} KB)`);
