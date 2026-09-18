@@ -29,7 +29,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- 3. Reveal sections on scroll ---------- */
+  /* ---------- 3. Language selector ---------- */
+  const languageSelect = document.getElementById('languageSelect');
+  const translations = {
+    id: { about: 'Tentang Kami', services: 'Layanan', clients: 'Klien', why: 'Mengapa ANBI', blog: 'Blog', contact: 'Kontak' },
+    en: { about: 'About Us', services: 'Services', clients: 'Clients', why: 'Why ANBI', blog: 'Blog', contact: 'Contact' }
+  };
+  const languageLinks = {
+    about: document.querySelector('.nav-links a[href="#about"]'),
+    services: document.querySelector('.nav-links a[href="/services/"]'),
+    clients: document.querySelector('.nav-links a[href="#clients"]'),
+    why: document.querySelector('.nav-links a[href="#why-anbi"]'),
+    blog: document.querySelector('.nav-links a[href="/blog/"]'),
+    contact: document.querySelector('.nav-links a[href="#contact"]')
+  };
+  const applyLanguage = (language) => {
+    const selected = translations[language] || translations.id;
+    Object.entries(languageLinks).forEach(([key, link]) => {
+      if (link) link.textContent = selected[key];
+    });
+    document.documentElement.lang = language;
+    if (languageSelect) languageSelect.value = language;
+  };
+  if (languageSelect) {
+    const initialLanguage = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'id';
+    applyLanguage(initialLanguage);
+    languageSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
+  }
+
+  /* ---------- 4. Reveal sections on scroll ---------- */
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
