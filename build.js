@@ -27,6 +27,8 @@ const COMPONENTS_DIR = path.join(ROOT, 'components');
 const TEMPLATES_DIR = path.join(ROOT, 'templates');
 const CONTENT_BLOG_DIR = path.join(ROOT, 'content', 'blog');
 const BLOG_OUTPUT_DIR = path.join(ROOT, 'blog');
+const SERVICES_TEMPLATE_PATH = path.join(ROOT, 'services.template.html');
+const SERVICES_OUTPUT_DIR = path.join(ROOT, 'services');
 
 const MONTHS_ID = [
   'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
@@ -78,6 +80,23 @@ function buildHomepage() {
   const result = injectComponents(template);
   fs.writeFileSync(OUTPUT_PATH, result);
   console.log(`✔ Built index.html (${(result.length / 1024).toFixed(0)} KB)`);
+}
+
+/* ---------- 1b. Build services page ---------- */
+function buildServices() {
+  if (!fs.existsSync(SERVICES_TEMPLATE_PATH)) return;
+  const template = fs.readFileSync(SERVICES_TEMPLATE_PATH, 'utf8');
+  const result = injectComponents(template)
+    .replace(/(src|href)="assets\//g, '$1="../assets/')
+    .replace('href="#top" class="navbar-logo"', 'href="../" class="navbar-logo"')
+    .replace(/href="#about"/g, 'href="../#about"')
+    .replace(/href="#clients"/g, 'href="../#clients"')
+    .replace(/href="#why-anbi"/g, 'href="../#why-anbi"')
+    .replace(/href="#contact"/g, 'href="../#contact"')
+    .replace(/—/g, ',');
+  fs.mkdirSync(SERVICES_OUTPUT_DIR, { recursive: true });
+  fs.writeFileSync(path.join(SERVICES_OUTPUT_DIR, 'index.html'), result);
+  console.log(`✔ Built services/index.html (${(result.length / 1024).toFixed(0)} KB)`);
 }
 
 /* ---------- 2. Build blog (blog/index.html + blog/<slug>/index.html) ---------- */
@@ -166,20 +185,14 @@ function buildBlogPost(article, template) {
 }
 
 function buildBlogList(articles, template) {
-  const cards = articles.map((a) => `
+  const featured = articles[0];
+  const cards = articles.slice(1).map((a) => `
       <a class="blog-card reveal" href="/blog/${a.slug}/">
-        <div class="blog-card-img">
-          <img src="${a.image || '/assets/images/blog/placeholder.svg'}" alt="${escapeAttr(a.title)}" loading="lazy">
-        </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">${formatDateID(a.date)}</span>
-          <h3>${a.title || ''}</h3>
-          <p>${a.excerpt || ''}</p>
-          <span class="blog-card-link">Baca Selengkapnya →</span>
-        </div>
+        <div class="blog-card-img"><img src="${a.image || '/assets/images/blog/placeholder.svg'}" alt="${escapeAttr(a.title)}" loading="lazy"></div>
+        <div class="blog-card-body"><span class="blog-card-date">${formatDateID(a.date)}</span><h3>${a.title || ''}</h3><p>${a.excerpt || ''}</p><span class="blog-card-link">Baca Selengkapnya →</span></div>
       </a>`).join('\n');
-
-  const finalHtml = injectComponents(template.replace('<!-- BLOG_CARDS -->', cards));
+  const featuredHtml = featured ? `<div class="insights-featured"><div class="insights-featured-image"><img src="${featured.image || '/assets/images/blog/placeholder.svg'}" alt="${escapeAttr(featured.title)}"></div><div class="insights-featured-copy"><span class="eyebrow">ARTIKEL PILIHAN</span><h2>${featured.title || ''}</h2><p>${featured.excerpt || ''}</p><div class="insights-featured-meta"><span>${formatDateID(featured.date)}</span><a href="/blog/${featured.slug}/">Baca Artikel →</a></div></div></div>` : '';
+  const finalHtml = injectComponents(template.replace('<!-- BLOG_FEATURED -->', featuredHtml).replace('<!-- BLOG_CARDS -->', cards));
   fs.mkdirSync(BLOG_OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(path.join(BLOG_OUTPUT_DIR, 'index.html'), finalHtml);
 }
@@ -216,4 +229,5 @@ function buildBlog() {
 /* ---------- Run ---------- */
 
 buildHomepage();
+buildServices();
 buildBlog();
