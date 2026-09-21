@@ -185,20 +185,14 @@ function buildBlogPost(article, template) {
 }
 
 function buildBlogList(articles, template) {
-  const cards = articles.map((a) => `
+  const featured = articles[0];
+  const cards = articles.slice(1).map((a) => `
       <a class="blog-card reveal" href="/blog/${a.slug}/">
-        <div class="blog-card-img">
-          <img src="${a.image || '/assets/images/blog/placeholder.svg'}" alt="${escapeAttr(a.title)}" loading="lazy">
-        </div>
-        <div class="blog-card-body">
-          <span class="blog-card-date">${formatDateID(a.date)}</span>
-          <h3>${a.title || ''}</h3>
-          <p>${a.excerpt || ''}</p>
-          <span class="blog-card-link">Baca Selengkapnya →</span>
-        </div>
+        <div class="blog-card-img"><img src="${a.image || '/assets/images/blog/placeholder.svg'}" alt="${escapeAttr(a.title)}" loading="lazy"></div>
+        <div class="blog-card-body"><span class="blog-card-date">${formatDateID(a.date)}</span><h3>${a.title || ''}</h3><p>${a.excerpt || ''}</p><span class="blog-card-link">Baca Selengkapnya →</span></div>
       </a>`).join('\n');
-
-  const finalHtml = injectComponents(template.replace('<!-- BLOG_CARDS -->', cards));
+  const featuredHtml = featured ? `<div class="insights-featured"><div class="insights-featured-image"><img src="${featured.image || '/assets/images/blog/placeholder.svg'}" alt="${escapeAttr(featured.title)}"></div><div class="insights-featured-copy"><span class="eyebrow">ARTIKEL PILIHAN</span><h2>${featured.title || ''}</h2><p>${featured.excerpt || ''}</p><div class="insights-featured-meta"><span>${formatDateID(featured.date)}</span><a href="/blog/${featured.slug}/">Baca Artikel →</a></div></div></div>` : '';
+  const finalHtml = injectComponents(template.replace('<!-- BLOG_FEATURED -->', featuredHtml).replace('<!-- BLOG_CARDS -->', cards));
   fs.mkdirSync(BLOG_OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(path.join(BLOG_OUTPUT_DIR, 'index.html'), finalHtml);
 }
