@@ -125,6 +125,10 @@ nav.nav-links a:hover::after { width: 100%; }
 nav.nav-links a.active { color: var(--navy); }
 nav.nav-links a.active::after { width: 100%; }
 .navbar-actions { grid-column: 3; display: flex; align-items: center; gap: 26px; justify-self: end; }
+.language-toggle { display: inline-flex; align-items: center; gap: 7px; color: var(--slate); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.language-option { appearance: none; border: 0; padding: 4px 0; background: transparent; color: inherit; cursor: pointer; font: inherit; letter-spacing: inherit; transition: color .2s ease; }
+.language-option:hover, .language-option.is-active { color: var(--navy); }
+.language-option:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy-deep); margin: 5px 0; transition: .25s; }
 
