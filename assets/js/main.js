@@ -119,12 +119,34 @@ document.addEventListener('DOMContentLoaded', () => {
       button.classList.toggle('is-active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    document.querySelectorAll('body *:not(script):not(style)').forEach((element) => {
-      if (element.children.length > 0) return;
-      const original = element.dataset.originalText || element.textContent.trim();
-      if (!element.dataset.originalText) element.dataset.originalText = original;
-      element.textContent = language === 'en' ? (translations[original] || original) : original;
+
+    const translateTextNode = (node) => {
+      const original = node.__originalText || node.nodeValue;
+      const trimmed = original.trim();
+      if (!trimmed) return;
+      if (!node.__originalText) node.__originalText = original;
+      const translated = language === 'en' ? (translations[trimmed] || trimmed) : trimmed;
+      node.nodeValue = original.replace(trimmed, translated);
+    };
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        const parent = node.parentElement;
+        return parent && !['SCRIPT', 'STYLE'].includes(parent.tagName)
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_REJECT;
+      }
     });
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    textNodes.forEach(translateTextNode);
+
+    const title = document.querySelector('title');
+    if (title) {
+      const original = title.dataset.originalText || title.textContent.trim();
+      if (!title.dataset.originalText) title.dataset.originalText = original;
+      title.textContent = language === 'en' ? (translations[original] || original) : original;
+    }
   };
   document.querySelectorAll('.language-option').forEach((button) => {
     button.addEventListener('click', () => translatePage(button.dataset.language));
